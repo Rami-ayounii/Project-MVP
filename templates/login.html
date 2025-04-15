@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com-->
+<html lang="fr" dir="ltr">
+  <head>
+    <link rel="icon" type="image/png" href="../assets/images/logomini.png">
+    <meta charset="UTF-8">
+    <title> Se connecter </title>
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="../assets/css/style1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+
+   
+
+<body>
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="../assets/images/tomato.jpg" alt="">
+        <div class="text">
+          <span class="text-1">Prenez le contrôle de l'avenir <br> de votre champ</span>
+          <span class="text-2">Connectez-vous!</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="forms">
+        <div class="form-content">
+          <div class="signup-form">
+            <a href="/" class="logo"><img src="../assets/images/logo (1).png" alt="logo gark sport" style="width: 120px; height: auto;"></a>
+                <div class="title">Se connecter</div>
+                    <form action="/login" method="POST">
+                        <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" placeholder="Entrer votre Email"name='email'>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Entrer votre Mot de passe" name="pwd">
+                        </div>
+                        <div class="text"><a href="#">Oublier votre Mot de passe?</a></div>
+                        <div class="button input-box">
+                            <input type="submit" value="Se connecter">
+                        </div>
+                        <div class="text sign-up-text">Vous n'avait pas un compte? <label for="flip"><a href="/signup" >S'inscrire</a></label></div>
+                        </div>
+                        {% if messages %}
+                        {% for category, message in messages %}
+                          <div class="alert alert-{{ category }}">
+                            {{ message }}
+                          </div>
+                        {% endfor %}
+                      {% endif %}
+                    </form>
+            </div>
+      
+
+
+        </div>
+  </div>
+
+    
+</div>
+</div>
+</body>
+</html>

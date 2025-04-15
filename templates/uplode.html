@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../assets/images/logomini.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Télechargement de l'image</title>
+  <link rel="stylesheet" href="../assets/css/styleuplode.css">
+  <link rel="stylesheet" href="../assets/css/templatemo-training-studio.css">
+</head>
+
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <nav class="main-nav">
+        
+                  <a href="/" class="logo"><img src="../assets/images/logo (1).png" alt="logo gark sport" style="width: 200px; height: auto;"></a>
+                  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+
+                  <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+              
+                  <link rel="stylesheet" href="../assets/css/templatemo-training-studio.css">
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                  <ul class="nav">
+                      <li class="scroll-to-section"><a href="/#top" class="active">Accueil</a></li>
+                      <li class="scroll-to-section"><a href="/#features">A Propos</a></li>
+                      <li class="scroll-to-section"><a href="/#our-classes">Fonctionnement</a></li>
+                      <li class="scroll-to-section"><a href="/#contact-us">Contactez-nous</a></li> 
+                      {% if username %}
+                            <li class="main-button "><a href="/logout">Quiter</a></li>
+                            {% else %}
+                            <li class="main-button "><a href="/login">Se connecter</a></li>
+                            {% endif %}
+                  </ul>        
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+              </nav>
+          </div>
+      </div>
+  </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+
+
+<body>
+
+  <div class="uplcontainer">
+    <form id="uploadForm" class="form" enctype="multipart/form-data" action="/uplode" method="post">
+      <span class="form-title">Télécharger votre image</span>
+      <p class="form-paragraph">
+        Le fichier doit être au format image pris en charge.
+      </p>
+      <label for="file-input" class="drop-container">
+        <span class="drop-title">Déposez les images ici</span>
+        ou
+        <input type="file" id="fileInput" name='file' accept="image/*">
+      </label>
+      <input type="submit" id="détection" value="Lancer l'analyse">
+
+      {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %} 
+    <div class="image-container">
+      <div id="loading">Chargement...</div>
+      <img id="myImage"  />
+    </div> 
+    </form>
+ </div>
+
+
+
+  <script src="../assets/js/scriptuplode.js"></script>
+   <!-- jQuery -->
+   <script src="../assets/js/jquery-2.1.0.min.js"></script>
+
+   <!-- Bootstrap -->
+   <script src="../assets/js/popper.js"></script>
+   <script src="../assets/js/bootstrap.min.js"></script>
+
+   <!-- Plugins -->
+   <script src="../assets/js/scrollreveal.min.js"></script>
+   <script src="../assets/js/waypoints.min.js"></script>
+   <script src="../assets/js/jquery.counterup.min.js"></script>
+   <script src="../assets/js/imgfix.min.js"></script> 
+   <script src="../assets/js/mixitup.js"></script> 
+   <script src="../assets/js/accordions.js"></script>
+   
+   <!-- Global Init -->
+   <script src="../assets/js/custom.js"></script>
+</body>
+</html>

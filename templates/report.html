@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../assets/images/logomini.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rapport</title>
+  <link rel="stylesheet" href="../assets/css/styleuplode.css">
+  <link rel="stylesheet" href="../assets/css/templatemo-training-studio.css">
+  <link rel="stylesheet" href="../assets/css/reporttable.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+</head>
+<body>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <a href="/" class="logo"><img src="../assets/images/logo (1).png" alt="logo gark sport" style="width: 200px; height: auto;"></a>
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="/#top" class="active">Accueil</a></li>
+                        <li class="scroll-to-section"><a href="/#features">A Propos</a></li>
+                        <li class="scroll-to-section"><a href="/#our-classes">Fonctionnement</a></li>
+                        <li class="scroll-to-section"><a href="/#contact-us">Contactez-nous</a></li> 
+                        {% if username %}
+                              <li class="main-button "><a href="/logout">Quitter</a></li>
+                        {% else %}
+                              <li class="main-button "><a href="/login">Se connecter</a></li>
+                        {% endif %}
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+    <!-- <div class="container my-5" id="reportContent">
+      <h1 class="mb-4" id="mb-4m">Resultat de detection</h1>
+      {% if response_data.detected  %}
+        <p>Tuta absoluta détectée ! Veuillez agir rapidement.</p>
+      {% else %}
+        <p>Pas de Tuta détectée. Vos cultures semblent saines !</p>
+      {% endif %}
+      <div class="image-container">
+        <div id="loading">Chargement...</div>
+        <img id="myImage" src= "{{ url_for('static', filename=response_data.image_path) }}"  alt="Image détectée">
+      </div>
+    </div> -->
+    <!-- From Uiverse.io by Yaya12085 --> 
+<div class="containerre">
+<div class="card"> 
+  <div class="header"> 
+    <div class="image">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 7L9.00004 18L3.99994 13" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+    </div> 
+      <div class="content">
+         <span class="title">Resultat de detection</span> 
+         {% if response_data.detected  %}
+         <p class="message" style="color: #e41b00;">Tuta absoluta détectée ! Veuillez agir rapidement.</p> 
+         {% else %}
+         <p class="message" style="color: #00b909;">Pas de Tuta détectée. Vos cultures semblent saines !</p> 
+         {% endif %}
+        </div> 
+        <div class="image-container">
+          <div id="loading">Chargement...</div>
+          <img id="myImage" src= "{{ url_for('static', filename=response_data.image_path) }}"  alt="Image détectée">
+        </div>
+         <div class="actions">
+          {% if response_data.detected  %}
+            <button class="history" type="button">Acheter Trichogramma</button> 
+            <button class="track" type="button"><a href="/uplode" style="text-decoration: none; color:black">Refaire la détection</a></button>
+          {% else %}
+          <button class="track" type="button"><a href="/uplode" style="text-decoration: none;color:black">Refaire la détection</a></button>
+          {% endif %}
+          </div> 
+            </div> 
+            </div>
+          </div>
+
+
+            <style>
+                .containerre {
+                  margin-top:8%;
+                  display: flex;
+                  justify-content: center;   /* Centre horizontalement */
+                  align-items: center;       /* Centre verticalement */
+                  height: 100vh;             /* Prend toute la hauteur de la fenêtre */
+                  ; /* (Optionnel) Couleur de fond douce */
+                }
+              .card {
+                overflow: hidden;
+                position: relative;
+                text-align: left;
+                border-radius: 0.5rem;
+                width: auto;
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+                background-color: #fff;
+              }
+
+
+              .image {
+                margin-top:10px;
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: #e2feee;
+                flex-shrink: 0;
+                justify-content: center;
+                align-items: center;
+                width: 3rem;
+                height: 3rem;
+                border-radius: 9999px;
+                animation: animate .6s linear alternate-reverse infinite;
+                transition: .6s ease;
+              }
+
+              .image svg {
+                color: #0afa2a;
+                width: 2rem;
+                height: 2rem;
+              }
+
+              .content {
+                margin-top: 0.75rem;
+                text-align: center;
+              }
+
+              .title {
+                color: #0a6ae7;
+                font-size: 1.5rem;
+                font-weight: 700;
+                line-height: 1.5rem;
+              }
+
+              .message {
+                margin-top: 0.5rem;
+                font-size: 1rem;
+                font-weight: 500;
+                line-height: 1.25rem;
+              }
+
+              .actions {
+                margin: 0.75rem 1rem;
+              }
+
+              .history {
+                display: inline-flex;
+                padding: 0.5rem 1rem;
+                background-color: #0a6ae7;
+                color: #ffffff;
+                font-size: 1rem;
+                line-height: 1.5rem;
+                font-weight: 500;
+                justify-content: center;
+                width: 100%;
+                border-radius: 0.375rem;
+                border: none;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+              }
+
+              .track {
+                display: inline-flex;
+                margin-top: 0.75rem;
+                padding: 0.5rem 1rem;
+                color: #242525;
+                font-size: 1rem;
+                line-height: 1.5rem;
+                font-weight: 500;
+                justify-content: center;
+                width: 100%;
+                border-radius: 0.375rem;
+                border: 1px solid #D1D5DB;
+                background-color: #fff;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+              }
+
+              @keyframes animate {
+                from {
+                  transform: scale(1);
+                }
+
+                to {
+                  transform: scale(1.09);
+                }
+              }
+            </style>  
+
+  <footer></footer>
+  <!-- jQuery -->
+  <!-- <script src="../assets/js/scriptuplode.js"></script> -->
+   <script src="../assets/js/jquery-2.1.0.min.js"></script>
+   <!-- Bootstrap -->
+   <script src="../assets/js/popper.js"></script>
+   <script src="../assets/js/bootstrap.min.js"></script>
+   <!-- Plugins -->
+   <script src="../assets/js/scrollreveal.min.js"></script>
+   <script src="../assets/js/waypoints.min.js"></script>
+   <script src="../assets/js/jquery.counterup.min.js"></script>
+   <script src="../assets/js/imgfix.min.js"></script> 
+   <script src="../assets/js/mixitup.js"></script> 
+   <script src="../assets/js/accordions.js"></script>
+   <script src="../assets/js/reporttable.js"></script>
+   <!-- Global Init -->
+   <script src="../assets/js/custom.js"></script>
+</body>
+</html>
